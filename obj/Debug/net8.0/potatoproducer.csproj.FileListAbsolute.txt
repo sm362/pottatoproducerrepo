@@ -57,3 +57,4 @@ C:\Users\sagar\Desktop\potatoproducer\obj\Debug\net8.0\refint\potatoproducer.dll
 C:\Users\sagar\Desktop\potatoproducer\obj\Debug\net8.0\potatoproducer.pdb
 C:\Users\sagar\Desktop\potatoproducer\obj\Debug\net8.0\potatoproducer.genruntimeconfig.cache
 C:\Users\sagar\Desktop\potatoproducer\obj\Debug\net8.0\ref\potatoproducer.dll
+C:\Users\sagar\Desktop\potatoproducer\obj\Debug\net8.0\potatoproducer.sourcelink.json
