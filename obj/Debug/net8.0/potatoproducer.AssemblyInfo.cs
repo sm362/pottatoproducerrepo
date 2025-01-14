@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("potatoproducer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+44a7fc34f6ce35fa6281922138e42ed942b3041b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e60226d19abad2443fa605eacee059271b2675da")]
 [assembly: System.Reflection.AssemblyProductAttribute("potatoproducer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("potatoproducer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

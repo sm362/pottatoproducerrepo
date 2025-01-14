@@ -1,6 +1,7 @@
 using System;
 using System.Text.Json;
 using Confluent.Kafka;
+using Confluent.Kafka.Admin;
 
 namespace potatoproducer;
 
@@ -11,6 +12,15 @@ public class Cl_A {
 }
 public class potatoproducerservice
 {
+
+    public async void createTopic()
+    {
+        string topic_name = "tomato";
+        using var adminClient = new AdminClientBuilder(new AdminClientConfig() { BootstrapServers = "localhost:9092"}).Build();
+        await adminClient.CreateTopicsAsync(new TopicSpecification [] {
+            new TopicSpecification {Name = topic_name, ReplicationFactor=1, NumPartitions = 1} 
+        });
+    }
     public async void Fn()
     {
 
@@ -34,6 +44,8 @@ public class potatoproducerservice
         message: message
         );
 
+        
+
         Console.WriteLine( $"{deliveryResult.Value} | ${deliveryResult.Offset}" );
 
         produer.Flush();
@@ -50,6 +62,13 @@ public class potatoproducerservice
 
         meta.Topics.ForEach(topic => {
             Console.WriteLine($"🦬 {topic.Topic}");
+
+            topic.Partitions.ForEach( partition => {
+                Console.WriteLine(@$"🫛 partition id =  {partition.PartitionId} | 
+                                    replicas =   {string.Join(" , ", partition.Replicas )}| 
+                                    in sync replicas = {string.Join( " , ", partition.InSyncReplicas) }" );
+
+            });
         });
 
 

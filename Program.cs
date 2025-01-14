@@ -36,6 +36,11 @@ app.MapGet("/listtopics" , ()=> {
     ob.listTopics();
 });
 
+app.MapGet("/createtopic",()=>{
+    potatoproducerservice ob =  new potatoproducerservice();
+    ob.createTopic();
+});
+
 app.Run();
 
 
