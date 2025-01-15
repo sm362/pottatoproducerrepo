@@ -5,7 +5,6 @@ using Confluent.Kafka.Admin;
 
 namespace potatoproducer;
 
-
 public class Cl_A {
     public int Id { get; set; }
     public string Name { get; set; } = "";
@@ -24,6 +23,8 @@ public class potatoproducerservice
     public async void Fn()
     {
 
+        // string jsonstr  = @"{ ""Id"" : ""132"", ""key2"":""🫎"" }";
+
         var config = new ProducerConfig {  // producerconfig is from confluent kafka
             BootstrapServers = "localhost:9092",
             AllowAutoCreateTopics=true,
@@ -32,7 +33,9 @@ public class potatoproducerservice
 
         Cl_A ob = new Cl_A() { Id=1, Name="🫎 Xyz"};
         var message = new Message<string, string> {
-            Key ="kafka key 1", Value = JsonSerializer.Serialize<Cl_A>(ob)
+            Key ="kafka key 1", 
+            Value = JsonSerializer.Serialize<Cl_A>(ob)
+            //Value =jsonstr
         };
  
         using var produer = new ProducerBuilder<string, string>(config).Build();
@@ -43,8 +46,6 @@ public class potatoproducerservice
         //message: new Message<string, string> {Key ="kafka key 1",  Value = $"🥔 kafka potato {rndIndx}"}
         message: message
         );
-
-        
 
         Console.WriteLine( $"{deliveryResult.Value} | ${deliveryResult.Offset}" );
 
