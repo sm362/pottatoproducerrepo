@@ -50,5 +50,7 @@ app.Run();
 
 // 🌵 
 // > docker exec kafka kafka-topics --create --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1 --topic Test12
-// > docker exec kafka kafka-topics  --list --bootstrap-server localhost:9092
+//// > docker exec kafka kafka-topics  --list --bootstrap-server localhost:9092
+
+
 
