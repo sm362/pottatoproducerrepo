@@ -23,7 +23,7 @@ public class potatoproducerservice
     public async void Fn()
     {
 
-        // string jsonstr  = @"{ ""Id"" : ""132"", ""key2"":""🫎"" }";
+        string jsonstr  = @"{ ""Id"" : ""132"", ""key2"":""🫎"" }";
 
         var config = new ProducerConfig {  // producerconfig is from confluent kafka
             BootstrapServers = "localhost:9092",
@@ -34,8 +34,8 @@ public class potatoproducerservice
         Cl_A ob = new Cl_A() { Id=1, Name="🫎 Xyz"};
         var message = new Message<string, string> {
             Key ="kafka key 1", 
-            Value = JsonSerializer.Serialize<Cl_A>(ob)
-            //Value =jsonstr
+            //Value = JsonSerializer.Serialize<Cl_A>(ob)
+            Value =jsonstr
         };
  
         using var produer = new ProducerBuilder<string, string>(config).Build();
